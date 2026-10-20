@@ -1,4 +1,3 @@
-
 package com.github.ggarabs.task_service.adapters.outbound;
 
 import java.math.BigDecimal;
@@ -16,27 +15,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "vagas_tb")
+@Table(name = "Task")
 @Getter
 @Setter
-public class JobEntity {
+public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idVaga;
+    private UUID idTask;
 
     private UUID idEmpregador;
-    private String titulo;
-    private String descricao;
-    private String cidade;
-    private String bairro;
+    private String title;
+    private String description;
+    private String city;
+    private String neighborhood ;
 
     @Enumerated(EnumType.STRING)
-    private SituacaoVaga situacao;
+    private SituacaoVaga status;
 
-    private LocalDateTime dataHoraAbertura;
-    private LocalDateTime dataHoraFechamento;
-    private LocalDateTime dataHoraCriacao;
-    private BigDecimal salario;
-    private String modalidade;
+    private LocalDateTime dateTimeOpen;
+    private LocalDateTime dateTimeClosed;
+    private LocalDateTime dateTimeCriation;
+    private BigDecimal income;
+    private String modality;
 }
