@@ -24,7 +24,7 @@ public class TaskEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID idEmpregador;
+    private UUID idemployer;
     private String title;
     private String description;
     private String city;
@@ -37,5 +37,5 @@ public class TaskEntity {
     private LocalDateTime dateTimeClosed;
     private LocalDateTime dateTimeCriation;
     private BigDecimal income;
-    private String modality;
+    private TaskModality modality;
 }
