@@ -31,7 +31,7 @@ public class TaskEntity {
     private String neighborhood ;
 
     @Enumerated(EnumType.STRING)
-    private SituacaoVaga status;
+    private TaskStatus status;
 
     private LocalDateTime dateTimeOpen;
     private LocalDateTime dateTimeClosed;
