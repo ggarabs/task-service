@@ -21,15 +21,15 @@ public class DuvidaVagaEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID idVaga;
+    private UUID idTask;
 
-    private UUID idAutor; 
+    private UUID idAuthor; 
 
-    private String pergunta;
+    private String question;
 
-    private String resposta;
+    private String answer;
 
-    private LocalDateTime dataPergunta;
+    private LocalDateTime dateTimeQuestion;
 
-    private LocalDateTime dataResposta;
+    private LocalDateTime dateTimeAnswer;
 }
