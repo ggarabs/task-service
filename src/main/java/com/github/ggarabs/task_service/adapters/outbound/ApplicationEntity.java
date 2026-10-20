@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "applications_tb")
+@Table(name = "applications")
 @Getter
 @Setter
 public class ApplicationEntity {
@@ -22,11 +22,11 @@ public class ApplicationEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID IdVaga;
-    private UUID IdCandidato;
+    private UUID IdApplication;
+    private UUID IdCandidate;
 
-    private LocalDateTime dataInscricao;
+    private LocalDateTime DateApplication;
 
     @Enumerated(EnumType.STRING)
-    private StatusCandidatura status;
+    private ApplicationStatus status;
 }
