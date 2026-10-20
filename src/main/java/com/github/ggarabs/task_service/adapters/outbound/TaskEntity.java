@@ -22,7 +22,7 @@ public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idTask;
+    private UUID id;
 
     private UUID idEmpregador;
     private String title;
