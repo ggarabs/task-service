@@ -8,6 +8,7 @@ services:
       SPRING_DATASOURCE_USERNAME: ${DB_USER:?Defina DB_USER no .env}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no .env}
       SPRING_DOCKER_COMPOSE_ENABLED: "false"
+      CORS_ALLOWED_ORIGIN: ${CORS_ALLOWED_ORIGIN:-http://localhost:3000}
     ports:
       - "${APP_PORT:-8080}:8081"
     depends_on:
