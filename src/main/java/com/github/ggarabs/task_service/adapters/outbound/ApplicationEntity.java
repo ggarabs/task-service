@@ -18,14 +18,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ApplicationEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID IdApplication;
-    private UUID IdCandidate;
+    private UUID taskId;
+    private UUID candidateId;
 
-    private LocalDateTime DateApplication;
+    private LocalDateTime dateApplication;
 
     @Enumerated(EnumType.STRING)
     private ApplicationStatus status;

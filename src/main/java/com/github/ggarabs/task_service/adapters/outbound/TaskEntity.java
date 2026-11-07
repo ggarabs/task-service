@@ -31,11 +31,13 @@ public class TaskEntity {
     private String neighborhood ;
 
     @Enumerated(EnumType.STRING)
-    private TaskStatus status;
+    private TaskStatus status; //[cite: 9]
+
+    @Enumerated(EnumType.STRING)
+    private TaskModality modality;
 
     private LocalDateTime dateTimeOpen;
     private LocalDateTime dateTimeClosed;
     private LocalDateTime dateTimeCriation;
     private BigDecimal income;
-    private TaskModality modality;
 }
