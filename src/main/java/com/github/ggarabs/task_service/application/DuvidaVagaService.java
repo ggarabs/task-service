@@ -29,10 +29,15 @@ public class DuvidaVagaService {
         return duvidaRepository.findByTaskId(taskId);    
 }
 
+    @Transactional(readOnly = true)
+    public DuvidaVagaEntity getDuvidaById(UUID id) {
+        return duvidaRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Dúvida não encontrada com o ID: " + id));
+    }
+
     @Transactional
     public DuvidaVagaEntity responderDuvida(UUID id, String resposta) {
-        DuvidaVagaEntity duvida = duvidaRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Dúvida não encontrada com o ID: " + id));
+        DuvidaVagaEntity duvida = getDuvidaById(id);
         
         duvida.setAnswer(resposta);
         duvida.setDateTimeAnswer(LocalDateTime.now());

@@ -9,8 +9,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no .env}
       SPRING_DOCKER_COMPOSE_ENABLED: "false"
       CORS_ALLOWED_ORIGIN: ${CORS_ALLOWED_ORIGIN:-http://localhost:3000}
+      USER_SERVICE_URL: ${USER_SERVICE_URL:-http://host.docker.internal:8080}
     ports:
-      - "${APP_PORT:-8080}:8081"
+      - "${APP_PORT:-8081}:8081"
     depends_on:
       postgres:
         condition: service_healthy
