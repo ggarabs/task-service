@@ -24,7 +24,7 @@ pipeline {
 
         stage('Compilar e testar') {
             steps {
-                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$SOURCE_DIR" maven:3.9-eclipse-temurin-21 mvn -B verify'
+                sh '/workspace/jenkins/scripts/maven-verify.sh task-service "$SOURCE_DIR"'
             }
         }
 
