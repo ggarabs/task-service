@@ -8,6 +8,7 @@ pipeline {
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
         AWS_PAGER = ''
+        SOURCE_DIR = '/workspace/task-service'
     }
 
     stages {
@@ -23,7 +24,7 @@ pipeline {
 
         stage('Compilar e testar') {
             steps {
-                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$WORKSPACE" maven:3.9-eclipse-temurin-21 mvn -B verify'
+                sh 'docker run --rm --volumes-from "$HOSTNAME" -w "$SOURCE_DIR" maven:3.9-eclipse-temurin-21 mvn -B verify'
             }
         }
 
@@ -49,7 +50,7 @@ pipeline {
             when { expression { params.DEPLOY_TO_AWS } }
             steps {
                 sshagent(credentials: ['ec2-deploy-key']) {
-                    sh '. ./.ec2.env && /workspace/jenkins/scripts/deploy-compose.sh task-service "$PUBLIC_IP" "http://localhost:3000" "$USER_SERVICE_URL"'
+                    sh '. ./.ec2.env && cd "$SOURCE_DIR" && /workspace/jenkins/scripts/deploy-compose.sh task-service "$PUBLIC_IP" "http://localhost:3000" "$USER_SERVICE_URL"'
                 }
             }
         }
