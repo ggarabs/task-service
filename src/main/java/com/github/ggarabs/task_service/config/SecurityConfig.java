@@ -23,9 +23,9 @@ public class SecurityConfig {
     private final SessionAuthenticationFilter sessionAuthenticationFilter;
 
     public SecurityConfig(
-            RestClient.Builder restClientBuilder,
             @Value("${services.user.url:http://localhost:8080}") String userServiceUrl) {
-        this.sessionAuthenticationFilter = new SessionAuthenticationFilter(restClientBuilder, userServiceUrl);
+        this.sessionAuthenticationFilter =
+                new SessionAuthenticationFilter(RestClient.builder(), userServiceUrl);
     }
 
     @Bean
